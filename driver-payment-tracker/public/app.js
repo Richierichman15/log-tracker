@@ -1,6 +1,5 @@
 document.getElementById('paymentDate').valueAsDate = new Date();
 
-// Load payments when page loads
 async function loadPayments() {
     try {
         const response = await fetch('/api/payments');
@@ -94,5 +93,4 @@ function getTimeAgo(date) {
     return Math.floor(seconds) + " seconds ago";
 }
 
-// Load payments when page loads
 loadPayments();

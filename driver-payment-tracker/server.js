@@ -5,17 +5,14 @@ const Payment = require('./models/Payment');
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-// Database sync
 sequelize.sync()
     .then(() => console.log('Database synchronized'))
     .catch(err => console.error('Error syncing database:', err));
 
-// Routes
 app.post('/api/payments', async (req, res) => {
     try {
         const payment = await Payment.create(req.body);
